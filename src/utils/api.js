@@ -5,7 +5,6 @@ class Api {
     this.api = axios.create({
       baseURL,
     });
-    this.get = this.get.bind(this);
   }
 
   async get(path) {
@@ -16,10 +15,10 @@ class Api {
         data,
       };
     } catch (error) {
-      const { status, message } = error.response;
+      const { status, data } = error.response;
       return {
         status,
-        message,
+        data,
       };
     }
   }

@@ -1,4 +1,4 @@
-const Api = require('../../utils/api');
+const Api = require('./api');
 
 describe('Api object', () => {
   test('Should return status 404 if path not found', async () => {

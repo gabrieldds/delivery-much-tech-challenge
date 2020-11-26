@@ -1,0 +1,20 @@
+{
+  "name": "delivery-much-tech-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gabrieldds/delivery-much-tech-challenge.git",
+  "author": "Gabriel Dias <gabrields46@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0"
+  }
+}

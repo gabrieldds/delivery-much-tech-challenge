@@ -2,12 +2,17 @@ class RecipeService {
   constructor(recipeApi, giphyApi) {
     this.recipeApi = recipeApi;
     this.giphyApi = giphyApi;
-    this.get.bind(this);
   }
 
   async get(params = []) {
     params.sort();
-    const { status, data: { results } } = await this.recipeApi.get(`/?i=${params.join(',')}`);
+    if (params.length > 3) {
+      return {
+        message: 'Number of ingredients must have to be 3 at most!',
+      };
+    }
+
+    const { data: { results } } = await this.recipeApi.get(`/?i=${params.join(',')}`);
     const recipes = await Promise.all(results.map(async (result) => {
       const { title, href, ingredients } = result;
       const { data: { data: [{ images: { original: { url } } }] } } = await this.giphyApi.get(`&q=${title}`);
@@ -20,7 +25,6 @@ class RecipeService {
     }));
 
     return {
-      status,
       keywords: params,
       recipes,
     };

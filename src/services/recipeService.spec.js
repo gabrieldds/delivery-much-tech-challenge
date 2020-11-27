@@ -10,9 +10,11 @@ const makeSut = () => {
 };
 
 describe('RecipeService object', () => {
-  test('Should return status 200', async () => {
+  test('Should recipes have 10 elements and keywords sorted', async () => {
     const sut = makeSut();
-    const { status } = await sut.get(['bread', 'garlic', 'tomato']);
-    expect(status).toBe(200);
+    const params = ['bread', 'garlic', 'tomato'];
+    const { recipes, keywords } = await sut.get(params);
+    expect(recipes.length).toBe(10);
+    expect(keywords).toEqual(params.sort());
   });
 });

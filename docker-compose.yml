@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  delivery-much-challenge:
+    container_name: delivery-much-challenge
+    build: '.'
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    ports:
+      - '3000:3000' 
